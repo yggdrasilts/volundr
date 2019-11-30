@@ -1,0 +1,50 @@
+{
+  "name": "volundr",
+  "version": "1.0.0",
+  "description": "A set of utilities to do the developer live easy.",
+  "author": "David López Felguera <davidlopez.david@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean:all": "rm -rf node_modules package-lock.json dist",
+    "prebuild": "rimraf dist",
+    "build": "webpack --config ./webpack.config.js",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "typescript-char": "0.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^12.12.14",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.2.0",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.5.4",
+    "tsconfig-paths": "^3.9.0",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node"
+  }
+}
