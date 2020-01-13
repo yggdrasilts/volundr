@@ -1,9 +1,25 @@
 {
   "name": "@yggdrasilts/volundr",
   "version": "0.1.0",
-  "description": "A set of utilities to do the developer live easy.",
   "author": "David López <davidlopez.david@gmail.com>",
+  "contributors": [
+    "David Lopez <davidlopez.david@gmail.com>"
+  ],
   "license": "MIT",
+  "description": "A set of utilities to do the developer live easy.",
+  "keywords": [
+    "typescript",
+    "utilities",
+    "javascript"
+  ],
+  "bugs": {
+    "url": "https://github.com/yggdrasilts/volundr/issues"
+  },
+  "homepage": "https://github.com/yggdrasilts/volundr",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yggdrasilts/volundr"
+  },
   "scripts": {
     "clean:all": "rm -rf node_modules package-lock.json dist",
     "prebuild": "rimraf dist",
@@ -32,6 +48,10 @@
     "typescript": "^3.7.4",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
+  },
+  "engines": {
+    "node": ">= 12.3.0",
+    "npm": ">= 6.9.0"
   },
   "jest": {
     "moduleFileExtensions": [
