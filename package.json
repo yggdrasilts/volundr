@@ -1,7 +1,8 @@
 {
   "name": "@yggdrasilts/volundr",
-  "version": "0.1.0",
+  "version": "0.1.6",
   "author": "David López <davidlopez.david@gmail.com>",
+  "main": "dist/index.js",
   "contributors": [
     "David Lopez <davidlopez.david@gmail.com>"
   ],
@@ -21,10 +22,13 @@
     "url": "git+https://github.com/yggdrasilts/volundr"
   },
   "scripts": {
+    "build": "npm run lint && npm test && webpack --config ./webpack.config.js",
+    "build:prod": "rimraf dist && npm run lint && npm test && tsc -p tsconfig.prod.json",
     "clean:all": "rm -rf node_modules package-lock.json dist",
-    "prebuild": "rimraf dist",
-    "build": "webpack --config ./webpack.config.js",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "prebuild": "rimraf dist",
+    "prepublish": "npm run build:prod",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage"
@@ -66,5 +70,9 @@
     },
     "coverageDirectory": "./coverage",
     "testEnvironment": "node"
-  }
+  },
+  "files": [
+    "dist",
+    "LICENSE.md"
+  ]
 }
