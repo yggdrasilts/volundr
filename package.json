@@ -1,8 +1,8 @@
 {
-  "name": "volundr",
-  "version": "1.0.0",
+  "name": "@yggdrasilts/volundr",
+  "version": "0.1.0",
   "description": "A set of utilities to do the developer live easy.",
-  "author": "David López Felguera <davidlopez.david@gmail.com>",
+  "author": "David López <davidlopez.david@gmail.com>",
   "license": "MIT",
   "scripts": {
     "clean:all": "rm -rf node_modules package-lock.json dist",
@@ -18,19 +18,19 @@
     "typescript-char": "0.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.23",
+    "@types/jest": "^24.0.25",
     "@types/lodash": "^4.14.149",
-    "@types/node": "^12.12.14",
+    "@types/node": "^13.1.6",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.0",
-    "ts-jest": "^24.2.0",
+    "ts-jest": "^24.3.0",
     "ts-loader": "^6.2.1",
-    "ts-node": "^8.5.4",
+    "ts-node": "^8.6.1",
     "tsconfig-paths": "^3.9.0",
     "tslint": "^5.20.1",
-    "typescript": "^3.7.2",
-    "webpack": "^4.41.2",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   },
   "jest": {
