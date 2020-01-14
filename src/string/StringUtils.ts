@@ -10,7 +10,8 @@ export class StringUtils {
 
   /**
    * Join string or number in a unique string with a separator.
-   * @param objects The strings or numbers to join.
+   *
+   * @param {Array<string | number>} objects The strings or numbers to join.
    */
   static join(...objects: Array<string | number>): string {
     return _.join(objects, StringUtils.EMPTY);
@@ -18,8 +19,9 @@ export class StringUtils {
 
   /**
    * Join string or number in a unique string with a separator.
-   * @param separator The separator for joining.
-   * @param objects The strings or numbers to join.
+   *
+   * @param {Char} separator The separator for joining.
+   * @param {Array<string | number>} objects The strings or numbers to join.
    */
   static joinWith(separator: Char, ...objects: Array<string | number>): string {
     return _.join(objects, String.fromCharCode(separator));
@@ -27,20 +29,25 @@ export class StringUtils {
 
   /**
    * Checks if a text is empty "" or null.
-   * @param text The text to check, maybe null.
+   *
+   * @param {string | null} text The text to check, maybe null.
    */
   static isEmpty(text: string | null): boolean {
     return text === null || text === undefined || text.length === 0;
   }
 
   /**
-   * Replaces all occurences.
+   * Replaces all occurrences.
    *
-   * @param target Input string.
-   * @param search Search string.
-   * @param replacement Replacement string.
+   * @param {string} target Input string.
+   * @param {string} search Search string.
+   * @param {string} replacement Replacement string.
    */
-  static replaceAll(target: string, search: string, replacement: string): string {
+  static replaceAll(
+    target: string,
+    search: string,
+    replacement: string,
+  ): string {
     return target.split(search).join(replacement);
   }
 }
