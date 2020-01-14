@@ -20,6 +20,7 @@ export class MimeTypeText {
   static readonly MIZAR = 'text/mizar';
   static readonly N3 = 'text/n3';
   static readonly PARAMETERS = 'text/parameters';
+  static readonly PLAIN = 'text/plain';
   static readonly PROVENANCE_NOTATION = 'text/provenance-notation';
   static readonly PRS_FALLENSTEIN_RST = 'text/prs.fallenstein.rst';
   static readonly PRS_LINES_TAG = 'text/prs.lines.tag';
@@ -47,7 +48,8 @@ export class MimeTypeText {
   static readonly VND_DEBIAN_COPYRIGHT = 'text/vnd.debian.copyright';
   static readonly VND_DMCLIENTSCRIPT = 'text/vnd.DMClientScript';
   static readonly VND_DVB_SUBTITLE = 'text/vnd.dvb.subtitle';
-  static readonly VND_ESMERTEC_THEME_DESCRIPTOR = 'text/vnd.esmertec.theme-descriptor';
+  static readonly VND_ESMERTEC_THEME_DESCRIPTOR =
+    'text/vnd.esmertec.theme-descriptor';
   static readonly VND_FICLAB_FLT = 'text/vnd.ficlab.flt';
   static readonly VND_FLY = 'text/vnd.fly';
   static readonly VND_FMI_FLEXSTOR = 'text/vnd.fmi.flexstor';
@@ -61,10 +63,13 @@ export class MimeTypeText {
   static readonly VND_LATEX_Z = 'text/vnd.latex-z';
   static readonly VND_MOTOROLA_REFLEX = 'text/vnd.motorola.reflex';
   static readonly VND_MS_MEDIAPACKAGE = 'text/vnd.ms-mediapackage';
-  static readonly VND_NET2PHONE_COMMCENTER_COMMAND = 'text/vnd.net2phone.commcenter.command';
-  static readonly VND_RADISYS_MSML_BASIC_LAYOUT = 'text/vnd.radisys.msml-basic-layout';
+  static readonly VND_NET2PHONE_COMMCENTER_COMMAND =
+    'text/vnd.net2phone.commcenter.command';
+  static readonly VND_RADISYS_MSML_BASIC_LAYOUT =
+    'text/vnd.radisys.msml-basic-layout';
   static readonly VND_SENX_WARPSCRIPT = 'text/vnd.senx.warpscript';
-  static readonly VND_SUN_J2ME_APP_DESCRIPTOR = 'text/vnd.sun.j2me.app-descriptor';
+  static readonly VND_SUN_J2ME_APP_DESCRIPTOR =
+    'text/vnd.sun.j2me.app-descriptor';
   static readonly VND_SOSI = 'text/vnd.sosi';
   static readonly VND_TROLLTECH_LINGUIST = 'text/vnd.trolltech.linguist';
   static readonly VND_WAP_SI = 'text/vnd.wap.si';
@@ -73,5 +78,6 @@ export class MimeTypeText {
   static readonly VND_WAP_WMLSCRIPT = 'text/vnd.wap.wmlscript';
   static readonly VTT = 'text/vtt';
   static readonly XML = 'text/xml';
-  static readonly XML_EXTERNAL_PARSED_ENTITY = 'text/xml-external-parsed-entity';
+  static readonly XML_EXTERNAL_PARSED_ENTITY =
+    'text/xml-external-parsed-entity';
 }
