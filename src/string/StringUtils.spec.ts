@@ -31,7 +31,14 @@ describe('StringUtils', () => {
   });
   describe('replaceAll', () => {
     it('should replace all "a" for "b"', () => {
-      expect(StringUtils.replaceAll('This is a replacement test.', 'a', 'b')).toBe('This is b replbcement test.');
+      expect(
+        StringUtils.replaceAll('This is a replacement test.', 'a', 'b'),
+      ).toBe('This is b replbcement test.');
+    });
+    it('should replace all "key" for "egg"', () => {
+      expect(StringUtils.replaceAll('The key is the key.', 'key', 'egg')).toBe(
+        'The egg is the egg.',
+      );
     });
   });
 });
