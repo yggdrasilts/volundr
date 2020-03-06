@@ -8,6 +8,7 @@ export class StringUtils {
   public static readonly EMPTY = '';
   public static readonly SPACE = String.fromCharCode(Char.Space);
   public static readonly SLASH = String.fromCharCode(Char.Slash);
+  public static readonly UNDERSCORE = String.fromCharCode(Char.Underscore);
 
   /**
    * Join string or number in a unique string with a separator.

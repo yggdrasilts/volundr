@@ -2,6 +2,20 @@ import { StringUtils } from './StringUtils';
 import Char from 'typescript-char';
 
 describe('StringUtils', () => {
+  describe('CONSTANTS', () => {
+    it('should be true for EMPTY', () => {
+      expect(StringUtils.EMPTY).toBe('');
+    });
+    it('should be true for SPACE', () => {
+      expect(StringUtils.SPACE).toBe(' ');
+    });
+    it('should be true for SLASH', () => {
+      expect(StringUtils.SLASH).toBe('/');
+    });
+    it('should be true for UNDERSCORE', () => {
+      expect(StringUtils.UNDERSCORE).toBe('_');
+    });
+  });
   describe('isEmpty', () => {
     it('should be true for null', () => {
       expect(StringUtils.isEmpty(null)).toBe(true);
