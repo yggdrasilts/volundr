@@ -1,78 +1,141 @@
 {
   "name": "@yggdrasilts/volundr",
-  "version": "0.1.8",
-  "author": "David López <davidlopez.david@gmail.com>",
-  "main": "dist/index.js",
-  "contributors": [
-    "David Lopez <davidlopez.david@gmail.com>"
-  ],
-  "license": "MIT",
+  "version": "0.1.10",
   "description": "A set of utilities to do the developer live easy.",
   "keywords": [
     "typescript",
     "utilities",
     "javascript"
   ],
+  "homepage": "https://github.com/yggdrasilts/volundr",
   "bugs": {
     "url": "https://github.com/yggdrasilts/volundr/issues"
   },
-  "homepage": "https://github.com/yggdrasilts/volundr",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yggdrasilts/volundr"
   },
+  "license": "MIT",
+  "author": "YggdrasilTS Team 🌳",
+  "contributors": [
+    "David Lopez <davidlopez.david@gmail.com>"
+  ],
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "LICENSE.md"
+  ],
   "scripts": {
-    "build": "npm run lint && npm test && webpack --config ./webpack.config.js",
-    "build:prod": "rimraf dist && npm run lint && npm test && tsc -p tsconfig.prod.json",
-    "clean:all": "rm -rf node_modules package-lock.json dist",
+    "allure:clean": "rimraf -rf allure-*",
+    "allure:serve": "run-s test allure:serve:cmd",
+    "allure:serve:cmd": "allure serve",
+    "prebuild": "rimraf dist",
+    "build": "run-s lint test build:cmd",
+    "build:cmd": "webpack --config ./webpack.config.js",
+    "build:prod": "run-s clean lint test build:prod:cmd",
+    "build:prod:cmd": "tsc -p tsconfig.prod.json",
+    "changelog": "changelog -f CURRENT_CHANGES.md",
+    "clean": "rimraf dist",
+    "clean:all": "rimraf node_modules package-lock.json dist",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "tslint -p tsconfig.json -c tslint.json",
-    "prebuild": "rimraf dist",
-    "prepublish": "npm run build:prod",
+    "prepublish": "run-s build:prod",
     "test": "jest",
+    "test:cov": "jest --coverage",
     "test:watch": "jest --watch",
-    "test:cov": "jest --coverage"
+    "update:toc": "doctoc README.md"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "header-max-length": [
+        0,
+        "always",
+        120
+      ]
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "../coverage",
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "reporters": [
+      "default",
+      "jest-allure"
+    ],
+    "rootDir": "src",
+    "setupFilesAfterEnv": [
+      "jest-allure/dist/setup"
+    ],
+    "testEnvironment": "node",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    }
   },
   "dependencies": {
     "lodash": "^4.17.15",
     "typescript-char": "0.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.25",
-    "@types/lodash": "^4.14.149",
-    "@types/node": "^13.1.6",
-    "jest": "^24.9.0",
-    "prettier": "^1.19.1",
-    "rimraf": "^3.0.0",
-    "ts-jest": "^24.3.0",
-    "ts-loader": "^6.2.1",
-    "ts-node": "^8.6.1",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/prompt-cli": "^8.3.5",
+    "@types/jest": "^25.2.3",
+    "@types/lodash": "^4.14.154",
+    "@types/node": "^14.0.6",
+    "allure-commandline": "^2.13.0",
+    "commitizen": "^4.1.2",
+    "commitlint": "^8.3.5",
+    "cz-conventional-changelog": "^3.2.0",
+    "doctoc": "^1.4.0",
+    "generate-changelog": "^1.8.0",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "jest-allure": "^0.1.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.1.0",
+    "ts-loader": "^7.0.5",
+    "ts-node": "^8.10.2",
     "tsconfig-paths": "^3.9.0",
-    "tslint": "^5.20.1",
-    "typescript": "^3.7.4",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   },
   "engines": {
     "node": ">= 12.3.0",
     "npm": ">= 6.9.0"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
-    "rootDir": "src",
-    "testRegex": ".spec.ts$",
-    "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
-    },
-    "coverageDirectory": "./coverage",
-    "testEnvironment": "node"
-  },
-  "files": [
-    "dist",
-    "LICENSE.md"
-  ]
+  }
 }

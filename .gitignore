@@ -17,6 +17,7 @@ lerna-debug.log*
 .DS_Store
 
 # Tests
+/allure-results
 /coverage
 /.nyc_output
 

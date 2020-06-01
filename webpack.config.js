@@ -1,6 +1,4 @@
-const {
-  resolve
-} = require('path');
+const { resolve } = require('path');
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
@@ -8,15 +6,17 @@ module.exports = {
     main: './src/index.ts',
   },
   module: {
-    rules: [{
-      test: /\.tsx?$/,
-      use: {
-        loader: 'ts-loader',
-        options: {
-          configFile: 'tsconfig.build.json',
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: {
+          loader: 'ts-loader',
+          options: {
+            configFile: 'tsconfig.build.json',
+          },
         },
       },
-    }, ],
+    ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
