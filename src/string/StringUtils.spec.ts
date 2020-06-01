@@ -55,4 +55,16 @@ describe('StringUtils', () => {
       );
     });
   });
+  describe('replace', () => {
+    it('should replace "a" for "b"', () => {
+      expect(StringUtils.replace('This is a replacement test.', 'a', 'b')).toBe(
+        'This is b replacement test.',
+      );
+    });
+    it('should replace "key" for "egg"', () => {
+      expect(StringUtils.replace('The key is the key.', 'key', 'egg')).toBe(
+        'The egg is the key.',
+      );
+    });
+  });
 });

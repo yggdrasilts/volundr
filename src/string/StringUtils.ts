@@ -52,16 +52,34 @@ export class StringUtils {
    *
    * @static
    * @param {string} sourceText Input string.
-   * @param {string} searchText Search string.
+   * @param {(string | RegExp)} searchValue Search string or regex expression.
    * @param {string} replacement Replacement string.
    * @returns {string} A string replacing all 'search' occurrences by 'replacement' in 'target'.
    * @memberof StringUtils
    */
   static replaceAll(
     sourceText: string,
-    searchText: string,
+    searchValue: string | RegExp,
     replacement: string,
   ): string {
-    return sourceText.split(searchText).join(replacement);
+    return sourceText.split(searchValue).join(replacement);
+  }
+
+  /**
+   * Replace one occurrence.
+   *
+   * @static
+   * @param {string} sourceText Input string.
+   * @param {(string | RegExp)} searchValue Search string or regex expression.
+   * @param {string} replacement Replacement string.
+   * @returns {string} A string replacing the 'search' occurrence by 'replacement' in 'target'.
+   * @memberof StringUtils
+   */
+  static replace(
+    sourceText: string,
+    searchValue: string | RegExp,
+    replacement: string,
+  ): string {
+    return sourceText.replace(searchValue, replacement);
   }
 }

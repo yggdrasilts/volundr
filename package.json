@@ -1,27 +1,32 @@
 {
   "name": "@yggdrasilts/volundr",
   "version": "0.1.9",
-  "author": "YggdrasilTS Team 🌳",
-  "main": "dist/index.js",
-  "contributors": [
-    "David Lopez <davidlopez.david@gmail.com>"
-  ],
-  "license": "MIT",
   "description": "A set of utilities to do the developer live easy.",
   "keywords": [
     "typescript",
     "utilities",
     "javascript"
   ],
+  "homepage": "https://github.com/yggdrasilts/volundr",
   "bugs": {
     "url": "https://github.com/yggdrasilts/volundr/issues"
   },
-  "homepage": "https://github.com/yggdrasilts/volundr",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yggdrasilts/volundr"
   },
+  "license": "MIT",
+  "author": "YggdrasilTS Team 🌳",
+  "contributors": [
+    "David Lopez <davidlopez.david@gmail.com>"
+  ],
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "LICENSE.md"
+  ],
   "scripts": {
+    "prebuild": "rimraf dist",
     "allure:clean": "rimraf -rf allure-*",
     "allure:serve": "run-s test allure:serve:cmd",
     "allure:serve:cmd": "allure serve",
@@ -34,12 +39,48 @@
     "clean:all": "rimraf node_modules package-lock.json dist",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "tslint -p tsconfig.json -c tslint.json",
-    "prebuild": "rimraf dist",
     "prepublish": "run-s build:prod",
     "test": "jest",
-    "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
+    "test:watch": "jest --watch"
     "update:toc": "doctoc README.md"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "header-max-length": [
+        0,
+        "always",
+        120
+      ]
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "coverageDirectory": "./coverage",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testEnvironment": "node",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    }
   },
   "dependencies": {
     "lodash": "^4.17.15",
@@ -62,15 +103,15 @@
     "jest": "^25.1.0",
     "jest-allure": "^0.1.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
-    "ts-jest": "^25.2.1",
-    "ts-loader": "^6.2.1",
-    "ts-node": "^8.6.2",
+    "ts-jest": "^26.1.0",
+    "ts-loader": "^7.0.5",
+    "ts-node": "^8.10.2",
     "tsconfig-paths": "^3.9.0",
     "tslint": "^6.0.0",
-    "typescript": "^3.8.3",
     "webpack": "^4.42.0",
+    "typescript": "^3.8.3",
     "webpack-cli": "^3.3.11"
   },
   "engines": {
