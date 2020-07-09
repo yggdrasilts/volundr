@@ -3,6 +3,9 @@ import Char from 'typescript-char';
 
 /**
  * Utils to use for strings.
+ *
+ * @export
+ * @class StringUtils
  */
 export class StringUtils {
   public static readonly EMPTY = '';
