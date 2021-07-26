@@ -4,7 +4,7 @@
  * @export
  * @class BooleanUtils
  */
-export class BooleanUtils {
+export default class BooleanUtils {
   /**
    * Transform a string to boolean.
    *
@@ -30,3 +30,7 @@ export class BooleanUtils {
     }
   }
 }
+
+const parseString = BooleanUtils.parseString;
+
+export { parseString };

@@ -1,4 +1,5 @@
 import * as _ from 'lodash';
+
 import Char from 'typescript-char';
 
 /**
@@ -84,5 +85,25 @@ export class StringUtils {
     replacement: string,
   ): string {
     return sourceText.replace(searchValue, replacement);
+  }
+
+  /**
+   * Compares two strings, returning true if they are equal, ignoring case.
+   *
+   * @static
+   * @param {string} str1 The first string.
+   * @param {string} str2 The second string.
+   * @returns true if the strings are equal (case-sensitive).
+   * @memberof StringUtils
+   */
+  static equalIgnoreCase(str1: string, str2: string) {
+    if (!str1 || !str2) {
+      return false;
+    }
+    if ((typeof str1 !== 'string' && typeof str2 !== 'string') || (str1.length !== str2.length)) {
+      return false;
+    }
+
+    return str1.toLowerCase() === str2.toLowerCase();
   }
 }

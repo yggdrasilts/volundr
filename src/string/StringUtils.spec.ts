@@ -1,5 +1,5 @@
-import { StringUtils } from './StringUtils';
 import Char from 'typescript-char';
+import { StringUtils } from './StringUtils';
 
 describe('StringUtils', () => {
   describe('CONSTANTS', () => {
@@ -65,6 +65,24 @@ describe('StringUtils', () => {
       expect(StringUtils.replace('The key is the key.', 'key', 'egg')).toBe(
         'The egg is the key.',
       );
+    });
+  });
+
+  describe('equalsIgnoreCase', () => {
+    it(`should be true: 'comparison' equalsIgnoreCase 'comparison'`, () => {
+      expect(StringUtils.equalIgnoreCase('comparison', 'comparison')).toBeTruthy();
+    });
+    it(`should be false: 'comparison' equalsIgnoreCase ''`, () => {
+      expect(StringUtils.equalIgnoreCase('comparison', '')).toBeFalsy()
+    });
+    it(`should be false: 'comparison' equalsIgnoreCase ' '`, () => {
+      expect(StringUtils.equalIgnoreCase('comparison', ' ')).toBeFalsy();
+    });
+    it(`should be false: 'comparison' equalsIgnoreCase null`, () => {
+      expect(StringUtils.equalIgnoreCase('comparison', null)).toBeFalsy();
+    });
+    it(`should be false: 'comparison' equalsIgnoreCase 'compare'`, () => {
+      expect(StringUtils.equalIgnoreCase('comparison', 'compare')).toBeFalsy();
     });
   });
 });
